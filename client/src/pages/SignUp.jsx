@@ -54,7 +54,7 @@ const handleSubmit = async (e) => {
             Blog
           </Link>
           <p className="text-sm mt-5">
-            You Can dign up with your email and password 
+            You Can sign up with your email and password 
             or with Google.
           </p>
         </div>
