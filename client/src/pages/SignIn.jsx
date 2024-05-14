@@ -93,7 +93,7 @@ const handleSubmit = async (e) => {
             </Button>
           </form>
           <div className="flex gap-2 text-sm mt-5">
-            <span>Dont Have an account?</span>
+            <span>Dont have an account?</span>
             <Link to='/sign-up' className="text-blue-500">
               Sign Up
             </Link>
