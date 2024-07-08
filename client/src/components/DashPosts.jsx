@@ -8,7 +8,7 @@ function DashPosts() {
   const [userPosts, setUserPosts] = useState([]);
   const [showMore, setShowMore] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [PostIdToDelete, setPostIdToDelete] = useState(' ');
+  const [PostIdToDelete, setPostIdToDelete] = useState(" ");
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -48,17 +48,21 @@ function DashPosts() {
     setShowModal(false);
 
     try {
-        const res = await fetch(`/api/post/deletepost/${PostIdToDelete}/${currentUser._id}`,
+      const res = await fetch(
+        `/api/post/deletepost/${PostIdToDelete}/${currentUser._id}`,
         {
-            method: 'DELETE',
-        });
-
-        const data = await res.json();
-        if( !res.ok) {
-          console.log(data.message);
-        } else {
-          setUserPosts( (prev) => prev.filter((post) => post._id !== PostIdToDelete));
+          method: "DELETE",
         }
+      );
+
+      const data = await res.json();
+      if (!res.ok) {
+        console.log(data.message);
+      } else {
+        setUserPosts((prev) =>
+          prev.filter((post) => post._id !== PostIdToDelete)
+        );
+      }
     } catch (error) {
       console.log(error);
     }
@@ -150,7 +154,7 @@ function DashPosts() {
           <div className="text-center">
             <HiOutlineExclamationCircle className="h-14 w-14 text-gray-400 dark:text-gray-200 mb-4 mx-auto" />
             <h3 className="mb-5 text-lg text-gray-500 dark:text-gray-400">
-              Are you sure you want to delete your account
+              Are you sure you want to delete this post?
             </h3>
             <div className="flex justify-center gap-4">
               <Button color="failure" onClick={handleDeletePost}>
