@@ -45,27 +45,22 @@ function DashUsers() {
     }
   };
   const handleDeleteUser = async () => {
-//     setShowModal(false);
+    setShowModal(false);
+    try {
+       const res = await fetch(`/api/user/delete/${UserIdToDelete}`,{
+        method: 'DELETE'
+       });
+       const data = await res.json();
+       if(res.ok){
+         setUsers((prev) => prev.filter((user) => user._id !== UserIdToDelete));
+       }
+       else {
+        console.log(data.message);
+       }
 
-//     try {
-//       const res = await fetch(
-//         `/api/post/deleteuser/${userIdToDelete}/${currentUser._id}`,
-//         {
-//           method: "DELETE",
-//         }
-//       );
-
-//       const data = await res.json();
-//       if (!res.ok) {
-//         console.log(data.message);
-//       } else {
-//         setUserPosts((prev) =>
-//           prev.filter((post) => post._id !== PostIdToDelete)
-//         );
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
