@@ -78,7 +78,7 @@ export const updateUser = async (req,res,next) => {
 
         }
         try {
-           const startIndex = pareseInt(req.query.startIndex) || 0;
+           const startIndex = parseInt(req.query.startIndex) || 0;
            const limit =  parseInt(req.query.limit) || 10;
            const sortDirection = req.query.sort === 'asc' ? 1 : -1;
 
@@ -86,7 +86,7 @@ export const updateUser = async (req,res,next) => {
            .skip(startIndex)
            .limit(limit);
 
-           const usersWithoutPassword = user.map((user) => {
+           const usersWithoutPassword = users.map((user) => {
              const { password, ...rest } =  user._doc;
              return rest;
 
