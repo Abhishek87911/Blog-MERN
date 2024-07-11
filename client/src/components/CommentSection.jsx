@@ -150,7 +150,7 @@ export default function CommentSection({postId}) {
               
               
               <Comment 
-              key={comment.id}
+              key={comment._id}
               comment={comment}
               onLike={handleLike}
               />
