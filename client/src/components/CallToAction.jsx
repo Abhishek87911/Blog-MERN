@@ -10,7 +10,7 @@ export default function CallToAction() {
 
             </h2>
             <p className="text-gray-500 my-2">
-                Checkout my projects on Github
+                Checkout my projects on GitHub
             </p>
             <Button gradientDuoTone='purpleToPink' className="rounded-tl-xl rounded-bl-none"> <a href="https://github.com/Abhishek87911" target="_blank" rel='noopener noreferrer' > Follow </a> </Button>
         </div>
